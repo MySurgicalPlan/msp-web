@@ -1,3 +1,6 @@
+All code in this repository is 
+copyright (c) 2026 My Surgical Plan Limited. All rights reserved.
+
 # Introduction
 Prototype web-app for CDI accelerator
 
