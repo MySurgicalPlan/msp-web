@@ -1,0 +1,24 @@
+# --- General ---
+.DS_Store
+.env
+.idea/
+.vscode/
+
+# --- Node / Frontend (React/Vite) ---
+node_modules/
+dist/
+npm-debug.log*
+.vite/
+
+# --- Python / Backend (FastAPI) ---
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+.pytest_cache/
+
+# --- AWS CDK ---
+cdk.out/
+.cdk.staging/
