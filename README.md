@@ -44,14 +44,14 @@ pip install tox
 tox
 ```
 The above sequence creates a new environment, installs tox, and then uses tox
-to build the backend and infrastructure environments, and run tests. See ```tox.ini```
+to build the ```test```, ```lint``` and ```security``` environments. See ```tox.ini```
 
 The virtual environments with all the dependencies installed are in:
 
 ```commandline
 .tox/test
 .tox/lint
-.tox/safety
+.tox/security
 ```
 
 # Running the Backend
