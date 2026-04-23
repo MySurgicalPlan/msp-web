@@ -1,8 +1,10 @@
 # --- General ---
 .DS_Store
-.env
+.tox/
+.env/
 .idea/
 .vscode/
+.coverage
 
 # --- Node / Frontend (React/Vite) ---
 node_modules/
