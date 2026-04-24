@@ -1,7 +1,7 @@
 import aws_cdk as core
 import aws_cdk.assertions as assertions
 
-from infra.infra_stack import InfraStack
+from lib.infra_stack import InfraStack
 
 
 # example tests. To run these tests, uncomment this file along with the example
