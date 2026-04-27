@@ -89,3 +89,51 @@ the same, and you may need different configuration for Dev/Test/Prod.
 
 For now, both developers should work in their own sandbox.
 
+# Note: Sandboxes withing Sandboxes
+
+A developer can work with one of the above Sandbox accounts, and use it like
+any other account, e.g. dev/test/prod.
+
+When you are doing a tutorial, you may see commands
+like: 
+```commandline
+cdk deploy --profile sandbox
+```
+and you are creating/destroying infrastructure within your sandbox account.
+So far so good. 
+
+However, things get more complicated when you are using Amplify. Amplify is 
+typically setup to link git branches to accounts. Then a build is triggered
+when the git branch is updated. So, you typically might have
+git branches dev/test/prod, and setup Amplify to build 3 separate environments.
+
+However, if you are doing a tutorial, and you setup Amplify, and you link
+a git repo to your Sandbox account, and then come across commands like:
+
+```commandline
+npx ampx sandbox
+```
+what is this?
+
+This creates an additional ```sandbox``` within whatever account you were logged into.
+If the **account** you wer connected to is called sandbox, you now have a sandbox within a sandbox.
+
+What this does is creates a copy of all your services, with a certain unique set of identifiers
+and also creates a local ```amplify_outputs.json``` which is a local file, in the directory of the
+where you ran the ```npx ampx sandbox``` command, which gives all the URLS and keys to
+login and connect to the temporary sandbox. Secondly, this sets up a watcher, (i.e. the command
+itself is a long running command that monitors the local file system for changes and triggers
+infrastructure updates).
+
+All this means you can have 1 terminal running the web server (i.e. ```npm run dev```),
+and this command ```npx ampx sandbox``` which creates a temporary backend for the 
+website to run against. 
+
+When you Ctrl-C the ```npx ampx sandbox``` command, the watcher will exit, but the 
+infrastructure will remain. Use the following command to tidy up:
+
+```commandline
+npx ampx sandbox delete
+```
+
+So, yes, you can have a sandbox within a sandbox.
