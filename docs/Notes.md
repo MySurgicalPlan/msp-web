@@ -1,12 +1,5 @@
 # NEEDS REVIEWING - POSSIBLY OBSOLETE (already!)
 
-# Training
-
-Before getting started with this repo, the following training courses should be completed
-
-1. AWS CDK Workshop: [here](https://catalog.us-east-1.prod.workshops.aws/workshops/10141411-0192-4021-afa8-2436f3c66bd8/en-US)
-2. Kiro workshop, or Kiro "Get started" tutorial: [here](https://kiro.dev/docs/)
-
 # Installation
 
 This repo contains a front end (React), backend (FastAPI) and infrastructure (AWS CDK Python).

@@ -27,7 +27,7 @@ Prototype web-app for CDI accelerator.
 * If you click on one of the roles, you will be taken to AWS Console, for that account and using that role.
 * If you want to switch accounts/roles, sign out, and sign back in again.
 
-# Further reading
+# More detail on Logins/Accounts
 
 While "logging into your Amazon account" sounds easy, we are running a multi-account
 setup. So you need to understand how to authenticate, how to connect to the right account
@@ -36,3 +36,10 @@ and how to deploy to the right account. Please read the following:
 * [Logins](docs/Logins.md)
 * [Accounts](docs/Accounts.md)
 
+# Training
+
+Before getting started with this repo, the following training courses should be completed
+
+1. AWS CDK Workshop: [here](https://catalog.us-east-1.prod.workshops.aws/workshops/10141411-0192-4021-afa8-2436f3c66bd8/en-US)
+2. Kiro workshop, or Kiro "Get started" tutorial: [here](https://kiro.dev/docs/)
+3. Amplify "Quick start" tutorial: [here](https://docs.amplify.aws/react/start/quickstart/)
