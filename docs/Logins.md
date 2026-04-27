@@ -2,13 +2,13 @@
 
 This document is written so you know what Users/Groups there are,
 and most importantly, how to setup AWS credentials, so you
-can easily push code to the right account.
+can easily send commands and deploy to the right account.
 
-## AWS Sign-in URL
+# AWS Sign-in URL
 
 As mentioned in [Accounts](Accounts.md), you login via a specific
 URL and then select the right account to access the given 
-environment and console. 
+environment and AWS console. 
 
 Our URL for My Surgical Plan, looks like the following:
 
@@ -18,6 +18,16 @@ However, this gives you web/online access to the console.
 But it is easier and better to provision services using
 scripts and command line commands, as these are more consistent and
 repeatable.
+
+# IAM versus IAM Identity Center
+
+There are two AWS services with confusingly similar names.
+
+* AWS Identity and Access Management (IAM) - this used to be for all accounts. Now think of it as just for robot accounts, service level accounts.
+* AWS IAM Identity Center - successor to AWS SSO. Used to manage users, groups and permissions.
+
+So, users and groups are configured using the "IAM Identity Center", whereas things like an
+Amplify service account that needs to deploy somewhere will have permissions set using IAM.
 
 # Users/Groups/Permissions.
 
@@ -31,7 +41,7 @@ Here is a short summary of the setup:
 * Then for each account, we assign a Group or User and set of Permissions.
 * For example on a Sandbox account, the User could have AdministratorAccess, and the DeveloperGroup could have ReadOnlyAccess. This means the specific user will have full control, and anyone in the developer group, read only.
 
-## Command line Logins
+# Configuring Command Line Sign On
 
 Then when deploying infrastructure using CDK, you use the command line. 
 First setup sso.
@@ -43,27 +53,65 @@ aws configure sso
 ```
 Answer the questions:
 
-* SSO session name (Recommended): e.g. 'My Surgical Plan Limited'
-* SSO start URL: The login URL
-* SSO region [None]: eu-west-2
-* Select account
-* Profile name []: Give it a name, e.g. "mysandbox"
+* SSO session name: e.g. 'MySurgicalPlanLimited'. Do not put spaces.
+* SSO start URL: The login URL provided with your account.
+* SSO region: eu-west-2, which is London.
+* Select account, and repeat this process for each of your accounts
+* Profile name []: Give it a name, e.g. "mysandbox", or "dev"
 
 (otherwise, accept defaults).
 
-The first time you run a cdk command, you will authenticate which lasts 
-about 12 hours, and then behind the scenes, the command line program
+Behind the scenes, the command line program
 is passing temporary keys back/forth for you. So they do not have to be
 stored in environment variables, or in text files on the local disk.
 
-Also, if you previously ran commands and used access keys, you may have
+Also, if you previously ran commands for tutorials and used access keys, you may have
 a ```~/.aws/credentials```, with a ```[default]``` section. Delete these.
 This ```~/.aws/credentials``` file should be empty.
+
+# Logging in on the Command Lin
+
+Once configured, you need to login:
+
+```commandline
+aws sso login --profile dev
+```
 
 Then when you run a command, you simply specify the profile to run against.
 
 For example:
 
 ```commandline
-cdk deploy --profile mysandbox
+cdk deploy --profile dev
 ```
+
+or you can set an environment variable.
+
+```commandline
+export AWS_PROFILE=dev
+```
+
+Verify you are accessing the dev account:
+
+```commandline
+aws sts get-caller-identity
+```
+
+# Boot strapping
+
+Before CDK can deploy anything to an account, you need to bootstrap it.
+
+```commandline
+npx cdk bootstrap aws://ACCOUNT_ID/REGION --profile dev
+```
+for example, get the account ID from the AWS console, and look at
+the list of servers, e.g. eu-west-2 is London.
+
+```commandline
+npx cdk bootstrap aws://123456789/eu-west-2 --profile dev
+```
+
+# Other commands:
+
+* Check identity: ```aws sts get-caller-identity --profile dev```
+* Check bootstrap status: ```aws cloudformation describe-stacks --stack-name CDKToolkit --profile dev```
