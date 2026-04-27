@@ -39,7 +39,9 @@ user account.
 When the administrator creates a new user account, the new user email 
 is sent to the user, with a login URL. Bookmark this URL. Bookmark this URL exactly, 
 not any URL with context or session specific identifiers on it, as these will expire.
-This is how you login. When you login, you will see the "AWS access portal", 
+This is how you login. The first time, click "Forgot password", as you won't have
+a password set, then create password, and your choice of MFA. 
+When you login, you will see the "AWS access portal", 
 which shows all the accounts you can log into. 
 Select 1 of these accounts and continue. You will have the priviledges
 assigned for you, according to your user/group for that specific account.
