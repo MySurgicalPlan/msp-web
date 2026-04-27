@@ -19,16 +19,20 @@ Prototype web-app for CDI accelerator.
 # Account Access
 
 * When you got an email it had a URL like: https://something.awsapps.com/start/
-* Click on that link, log in with user username, password, MFA.
-* Then you should see a list of Account Name and Account ID that have been assigned.
-* Expand each Account Name, and you will see the role for each account that you have been assigned.
+* Click on that link. If first time, select "Forgot password" to setup a new password and MFA.
+* Log in with user username, password, MFA.
+* Then you should see a list of Account Name and Account ID that you have been assigned.
+* Expand each Account Name, and you will see each role for each account that you have been assigned.
 * You will also see "Access keys". These access keys enable you to log in. **They must not be checked into any git repo.**
-* If you click on one of the roles, you will be taken to AWS Console, for that account and that role.
+* If you click on one of the roles, you will be taken to AWS Console, for that account and using that role.
 * If you want to switch accounts/roles, sign out, and sign back in again.
 
 # Further reading
 
-See also:
+While "logging into your Amazon account" sounds easy, we are running a multi-account
+setup. So you need to understand how to authenticate, how to connect to the right account
+and how to deploy to the right account. Please read the following:
 
-* [Accounts](docs/Accounts.md)
 * [Logins](docs/Logins.md)
+* [Accounts](docs/Accounts.md)
+

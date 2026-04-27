@@ -29,7 +29,7 @@ If you Google for AWS Console Login, you get to [here](https://aws.amazon.com/co
 There are options for logging in using:
 
 * Root user email - this works, and is how the root user can login.
-* IAM Account ID and IAM username - this should **not** be used it is only for **legacy** accounts.
+* IAM Account ID and IAM username - this should **not** be used it is only for **legacy** user accounts.
 
 The correct way to login is via a specific URL, provided with your new
 user account.
@@ -116,7 +116,7 @@ npx ampx sandbox
 what is this?
 
 This creates an additional ```sandbox``` within whatever account you were logged into.
-If the **account** you wer connected to is called sandbox, you now have a sandbox within a sandbox.
+If the **account** you were connected to is called sandbox, you now have a sandbox within a sandbox.
 
 What this does is creates a copy of all your services, with a certain unique set of identifiers
 and also creates a local ```amplify_outputs.json``` which is a local file, in the directory of the
@@ -135,5 +135,5 @@ infrastructure will remain. Use the following command to tidy up:
 ```commandline
 npx ampx sandbox delete
 ```
-
-So, yes, you can have a sandbox within a sandbox.
+So, yes, you can have a sandbox within a sandbox. One set of resources is updated in real-time 
+by the watcher. The other set will only be updated when you commit back to the git branch.
