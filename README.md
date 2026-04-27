@@ -2,7 +2,7 @@ All code in this repository is
 copyright (c) 2026 My Surgical Plan Limited. All rights reserved.
 
 # Introduction
-Prototype web-app for CDI accelerator
+Prototype web-app for CDI accelerator.
 
 # Pre-requisites
 
@@ -20,9 +20,12 @@ Specifically for us:
 
 * Matt: I'm using homebrew, so: ```brew install node``` or ```brew uprgade node```
 
-4. Install IDE of choice. VSCode, Pycharm etc.
-5. Install AWS CDK Toolkit: [here](https://catalog.us-east-1.prod.workshops.aws/workshops/10141411-0192-4021-afa8-2436f3c66bd8/en-US/20-prerequisites/70-toolkit)
-6. Install Python 3.9 or later. I'm going to assume people are familiar with ```tox```, ```conda```, ```venv``` etc.
+4. Install nvm: ```curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash```
+5. ```nvm install 22```
+6. ```nvm use 22```
+7. Install IDE of choice. VSCode, Pycharm etc.
+8. Install AWS CDK Toolkit: [here](https://catalog.us-east-1.prod.workshops.aws/workshops/10141411-0192-4021-afa8-2436f3c66bd8/en-US/20-prerequisites/70-toolkit)
+9. Install Python 3.9 or later. I'm going to assume people are familiar with ```tox```, ```conda```, ```venv``` etc.
 
 # Training
 

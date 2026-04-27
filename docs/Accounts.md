@@ -39,15 +39,19 @@ user account.
 When the administrator creates a new user account, the new user email 
 is sent to the user, with a login URL. Bookmark this URL. Bookmark this URL exactly, 
 not any URL with context or session specific identifiers on it, as these will expire.
-This is how you login. When you login, you will see all the group/roles you have been assigned to.
-Select 1 of these roles to adopt that role, and continue. 
+This is how you login. When you login, you will see the "AWS access portal", 
+which shows all the accounts you can log into. 
+Select 1 of these accounts and continue. You will have the priviledges
+assigned for you, according to your user/group for that specific account.
+For example, on your Sandbox account, you will likely be administrator,
+but on the Production account, you could be read-only.
 
 Our URL for My Surgical Plan, looks like the following:
 
 * ```https://d-9c6.......awsapps.com/start/```
 
 
-To switch between roles, specifically sign out, and sign back in again as the new role.
+To switch between accounts, specifically sign out, and sign back in again as the new role.
 
 # AWS Structure
 
@@ -73,6 +77,8 @@ root - My Surgical Plan Limited
   - OU: Sandbox
     - Account: Sandbox 1
     - Account: Sandbox 2
+    - Account: Sandbox 3
+    - Account: Sandbox 4
 ```
 The reason for having OU for Dev, Test, Prod, and then accounts under that
 is because we may eventually have multiple applications, or provision
